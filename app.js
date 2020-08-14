@@ -4,6 +4,8 @@ const bodyParser = require("body-parser")
 
 const app = express();
 
+const weatherAPI = config.WEATHER_API_KEY
+
 app.use(bodyParser.urlencoded({extnded:true}))
 
 app.get("/", function(req, res){
@@ -12,7 +14,7 @@ app.get("/", function(req, res){
 
 app.post("/", function(req, res){
   const query = req.body.cityName;
-  const apiKey = "566d78b5b9f537cd1f3a1a4b8936e53f"
+  const apiKey = weatherAPI;
   const unit = "metric"
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&units=" + unit;
 
